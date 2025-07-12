@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Hide YouTube Shorts",
+  "version": "1.0",
+  "description": "Hides YouTube Shorts videos for a less cluttered Browse experience.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["*://*.youtube.com/*"], // Ensure this covers all YouTube domains
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"], // Ensure this covers all YouTube domains
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
